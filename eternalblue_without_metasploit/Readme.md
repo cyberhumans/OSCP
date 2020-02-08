@@ -1,6 +1,6 @@
-# Automated Eternalblue _MS_17_010_ without metasploit : #
+# Automated Eternalblue MS_17_010 exploit without metasploit : #
 
-This script utilises publicly availaible exploits and repositories to generate a automated exploit for eternalblue without metasploit. 
+This script utilises publicly availaible exploits and repositories to generate an automated exploit for eternalblue without metasploit and also modifies it for reverse shell 
 
 ## Installation ##
 `pip install imapcket`  
@@ -12,4 +12,4 @@ This script utilises publicly availaible exploits and repositories to generate a
 and start listner in new tab
 
 ## Documentation ##
-If you need to know about working of this exploit refer MS17_010.txt
+If you need to know about working of this exploit refer [MS17_010.txt](https://github.com/cyberhumans/OSCP/blob/master/eternalblue_without_metasploit/MS_17_010.txt)
