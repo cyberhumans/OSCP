@@ -2,8 +2,7 @@
 
  Reference:
 
-https://www.exploit-db.com/exploits/7132
-https://www.exploit-db.com/exploits/40279	(Reverse shell modification of above payload but not working).
+https://www.exploit-db.com/exploits/7132  https://www.exploit-db.com/exploits/40279	(Reverse shell modification of above payload but not working).
 
 7132.py directly bind shell to port 4444 at server(No code modification required).
 Exploit: python 7132.py 192.168.1.6 2	(& got bind shell at server side port 4444)
