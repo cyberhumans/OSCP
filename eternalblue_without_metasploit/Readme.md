@@ -1,4 +1,4 @@
-=>MS_17_010 Details and exploits:
+# MS_17_010 Details and exploits:
 
 References:
 https://docs.microsoft.com/en-us/security-updates/securitybulletins/2017/ms17-010
