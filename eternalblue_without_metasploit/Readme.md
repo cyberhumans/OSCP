@@ -3,7 +3,7 @@
 This script utilises publicly availaible exploits and repositories to generate a automated exploit for eternalblue without metasploit. 
 
 ## Installation ##
-`pip install imapcket`
+`pip install imapcket`  
 `git clone https://github.com/cyberhumans/OSCP.git`  
 
 ## Usage : ##
