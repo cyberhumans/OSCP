@@ -13,3 +13,10 @@ and start listener in new tab.
 
 ## Documentation : ##
 If you need to know about working of this exploit refer [MS17_010.txt](https://github.com/cyberhumans/OSCP/blob/master/eternalblue_without_metasploit/MS_17_010.txt)
+
+### Credits : ##
+* https://github.com/worawit/MS17-010
+
+### References : ###
+* https://www.exploit-db.com/exploits/42031
+* https://www.exploit-db.com/exploits/42315
